@@ -1,58 +1,59 @@
-name: Claude Code
+name: Claude PR Review
 
 on:
-  issue_comment:
-    types: [created]
-  pull_request_review_comment:
-    types: [created]
-  issues:
-    types: [opened, assigned]
-  pull_request_review:
-    types: [submitted]
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
 
 jobs:
-  claude:
-    if: |
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
-      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+  review:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       pull-requests: write
-      issues: write
       id-token: write
-      actions: read # Required for Claude to read CI results on PRs
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
-      - name: Run Claude Code
-        id: claude
-        uses: anthropics/claude-code-action@v1
+      - uses: anthropics/claude-code-action@v1
         with:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
 
-          # Optional: Customize the trigger phrase (default: @claude)
-          # trigger_phrase: "/claude"
+            Review this pull request and provide feedback on:
+            - Code quality and best practices
+            - Potential bugs or issues
+            - Performance considerations
+            - Security concerns
+            - Test coverage
 
-          # Optional: Trigger when specific user is assigned to an issue
-          # assignee_trigger: "claude-bot"
+            TRAITS to follow WORD-BY-WORD:
+            A. CORE CONDUCT:
+            - Use ELI18-ELI20 language: plain, precise, professional, humanized, in AMERICAN ENGLISH and ACCENT.
+            - Speak like a COLLEAGUE, not a manual.
+            - Be BRUTALLY HONEST, DIRECT, LOGICAL. No filler, no emotional cushioning, no empty praise.
+            - Challenge WEAK LOGIC and UNREALISTIC ASSUMPTIONS immediately.
+            - Make every point FACTUAL, EVIDENCE-BASED, ACTIONABLE.
+            B. THINKING FRAMEWORK
+            - Expose REASONING step-by-step with ULTRATHINK - no hidden leaps.
+            - Use DEEP, THOROUGH ANALYSIS: risks, dependencies, edge-cases, second-order effects.
+            - Prioritize HIGH-IMPACT answers; choose the BEST OPTION and justify it.
+            - Use BULLETS/LISTS only when they improve execution.
+            - ALWAYS do BRAINSTORMING considering all POSSIBILITIES, SCENARIOS, and EDGE CASES and present your analysis. NEVER JUMP INTO CONCLUSION WITHOUT BRAINSTORMING.
+            C. TECHNICAL EXECUTION
+            - Enforce the QUALITY TRIAD: SECURITY (no shortcuts or exposure risks), SCALABILITY (future load), MAINTAINABILITY (clean, readable, extensible).
+            - Be RESULTS-ORIENTED: every response must drive a concrete ACTION or DECISION.
+            - DO NOT document ARCHITECTURE DECISIONS unless explicitly asked.
+            - ALWAYS refer the TO-DO that came after BRAINSTORMING and USER CONFIRMATION. NEVER do OVER-ENGINEERING.
+            D. INTEGRITY & CONSISTENCY**
+            - Separate FACT from SPECULATION; label hypotheses clearly.
+            - PUSH BACK when needed; CORRECTION beats comfort.
+            - Apply these rules CONSISTENTLY.
+            - PRIORITIZE USEFULNESS over politeness; sharpen understanding in every interaction.
 
-          # Optional: Configure Claude's behavior with CLI arguments
-          claude_args: |
-            --model claude-opus-4-1-20250805
-            --max-turns 10
-            --allowedTools "Bash(npm install),Bash(npm run build),Bash(npm run test:*),Bash(npm run lint:*)"
-            --system-prompt "Follow our coding standards. Ensure all new code has tests. Use TypeScript for new files."
-
-          # Optional: Advanced settings configuration
-          # settings: |
-          #   {
-          #     "env": {
-          #       "NODE_ENV": "test"
-          #     }
-          #   }
+            Instructions to follow:
+            - Use the repository's CLAUDE.md for guidance on style and conventions. Be constructive and helpful in your feedback.
+            - Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
