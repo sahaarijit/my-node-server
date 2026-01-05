@@ -15,7 +15,11 @@ my-node-server
 │   │   └── index.js       # Route definitions
 │   └── controllers
 │       └── hostController.js # Logic for handling POST requests
+├── .github                # GitHub Actions workflows
+│   ├── claude.yml         # Claude Code Action for @claude mentions
+│   └── claude-code-review.yml # Automated PR code review
 ├── package.json           # NPM configuration file
+├── nodemon.json           # Nodemon configuration for dev mode
 ├── .gitignore             # Files and directories to ignore by Git
 └── README.md              # Project documentation
 ```
@@ -44,11 +48,23 @@ To start the server, run:
 npm start
 ```
 
+For development with hot reload:
+```
+npm run dev
+```
+
 The server will be running on `http://localhost:3000`.
 
 ## API Endpoints
 
-- **POST /api/process-xml-files**: Process XML files. The request body should contain the necessary data.
+- **POST /api/process-xml-files**: Process XML files and send to external replication API.
+
+  **Request Body:**
+  ```json
+  {
+    "token": "your-bearer-token"
+  }
+  ```
 
 ## License
 
