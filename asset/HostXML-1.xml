@@ -1,0 +1,167 @@
+<fuelfacs_host_transaction>
+  <transaction_header>
+    <transaction_id>515301</transaction_id>
+  </transaction_header>
+  <transactions>
+    <trip transaction_operation="A">
+      <operation>5</operation>
+      <delivery_date>2024-06-29T00:00:00</delivery_date>
+      <delivery_sequence>00001</delivery_sequence>
+      <host_ref_id>0009576318</host_ref_id>
+      <route_trip_records>
+        <route_trip>
+          <terminal_id>710117</terminal_id>
+        </route_trip>
+      </route_trip_records>
+      <orders_records>
+        <orders>
+          <carrier_number>68055178</carrier_number>
+          <tractor_number>65935</tractor_number>
+          <supplier_number>7100314</supplier_number>
+          <customer_number>11618121</customer_number>
+          <destination_number>11619659</destination_number>
+          <type>1</type>
+          <invoice_required>2</invoice_required>
+          <delivery_date>2024-06-29T14:01:13</delivery_date>
+          <shift>1</shift>
+          <stop>0</stop>
+          <preload_flag>2</preload_flag>
+          <host_ref_id>0507963265</host_ref_id>
+          <!--  P18977/U26485 TAW 02-Dec-2009 Added new pass-through elements for PDXR 4.01
+             protocol support in the TABS Server.  -->
+          <!--  P18977/U26485 TAW 19-Jan-2011 Added new pass through element for the PDXR 4.01
+            BOL number.  -->
+          <!--  P27623/U35044 JEC 28-Oct-2012. Vehicle suppport  -->
+          <order_container_records>
+            <order_container>
+              <container_code>65936</container_code>
+              <container_type>2</container_type>
+              <!--  P18977/U26485 TAW 02-Dec-2009 Added new pass-through elements for PDXR 4.01
+             protocol support in the TABS Server.  -->
+            </order_container>
+          </order_container_records>
+          <order_dispatch_records>
+            <order_dispatch>
+              <product_number>400003159</product_number>
+              <compartment_container_code>65936</compartment_container_code>
+              <compartment_container_type>2</compartment_container_type>
+              <compartment_number>1</compartment_number>
+              <quantity>5800</quantity>
+              <duty_status>1</duty_status>
+            </order_dispatch>
+            <order_dispatch>
+              <product_number>400003151</product_number>
+              <compartment_container_code>65936</compartment_container_code>
+              <compartment_container_type>2</compartment_container_type>
+              <compartment_number>2</compartment_number>
+              <quantity>4500</quantity>
+              <duty_status>1</duty_status>
+            </order_dispatch>
+            <order_dispatch>
+              <product_number>400003159</product_number>
+              <compartment_container_code>65936</compartment_container_code>
+              <compartment_container_type>2</compartment_container_type>
+              <compartment_number>3</compartment_number>
+              <quantity>5800</quantity>
+              <duty_status>1</duty_status>
+            </order_dispatch>
+            <order_dispatch>
+              <product_number>400003159</product_number>
+              <compartment_container_code>65936</compartment_container_code>
+              <compartment_container_type>2</compartment_container_type>
+              <compartment_number>4</compartment_number>
+              <quantity>5800</quantity>
+              <duty_status>1</duty_status>
+            </order_dispatch>
+            <order_dispatch>
+              <product_number>400003159</product_number>
+              <compartment_container_code>65936</compartment_container_code>
+              <compartment_container_type>2</compartment_container_type>
+              <compartment_number>5</compartment_number>
+              <quantity>5800</quantity>
+              <duty_status>1</duty_status>
+            </order_dispatch>
+            <order_dispatch>
+              <product_number>400006090</product_number>
+              <compartment_container_code>65936</compartment_container_code>
+              <compartment_container_type>2</compartment_container_type>
+              <compartment_number>6</compartment_number>
+              <quantity>5400</quantity>
+              <duty_status>1</duty_status>
+            </order_dispatch>
+            <order_dispatch>
+              <product_number>400003154</product_number>
+              <compartment_container_code>65936</compartment_container_code>
+              <compartment_container_type>2</compartment_container_type>
+              <compartment_number>7</compartment_number>
+              <quantity>5400</quantity>
+              <duty_status>1</duty_status>
+            </order_dispatch>
+          </order_dispatch_records>
+          <user_field_records user_field_type="12">
+            <user_field>
+              <index>2</index>
+              <value>0</value>
+            </user_field>
+            <user_field>
+              <index>5</index>
+              <value>0</value>
+            </user_field>
+            <user_field>
+              <index>8</index>
+              <value>0</value>
+            </user_field>
+          </user_field_records>
+        </orders>
+      </orders_records>
+      <user_field_records user_field_type="13">
+        <user_field>
+          <index>1</index>
+          <value>0</value>
+        </user_field>
+        <user_field>
+          <index>2</index>
+          <value>2024062912:01:13</value>
+        </user_field>
+        <user_field>
+          <index>3</index>
+          <value>ZAAOO0</value>
+        </user_field>
+        <user_field>
+          <index>4</index>
+          <value>2024062912:05:39</value>
+        </user_field>
+        <user_field>
+          <index>8</index>
+          <value>ZA_9842 SS</value>
+        </user_field>
+        <user_field>
+          <index>9</index>
+          <value>1</value>
+        </user_field>
+        <user_field>
+          <index>12</index>
+          <value>0009576318</value>
+        </user_field>
+        <user_field>
+          <index>14</index>
+          <value>0</value>
+        </user_field>
+        <user_field>
+          <index>15</index>
+          <value>2</value>
+        </user_field>
+        <user_field>
+          <index>16</index>
+          <value>2</value>
+        </user_field>
+        <user_field>
+          <name>IDOCNUM</name>
+          <value>0000002312235153</value>
+        </user_field>
+      </user_field_records>
+    </trip>
+  </transactions>
+  <!--  P23975/U39792 - QCL Added following section to allow special operations
+   on transactions.   -->
+</fuelfacs_host_transaction>

@@ -1,0 +1,18 @@
+<fuelfacs_host_transaction>
+  <transaction_header>
+    <transaction_id>17501</transaction_id>
+  </transaction_header>
+  <transactions>
+    <trip transaction_operation="D">
+      <operation>5</operation>
+      <host_ref_id>1900620833</host_ref_id>
+      <route_trip_records>
+        <route_trip>
+          <terminal_id>710117</terminal_id>
+        </route_trip>
+      </route_trip_records>
+    </trip>
+  </transactions>
+  <!--  P23975/U39792 - QCL Added following section to allow special operations
+   on transactions.   -->
+</fuelfacs_host_transaction>
