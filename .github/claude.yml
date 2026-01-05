@@ -18,42 +18,11 @@ jobs:
 
       - uses: anthropics/claude-code-action@v1
         with:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
-            REPO: ${{ github.repository }}
-            PR NUMBER: ${{ github.event.pull_request.number }}
-
             Review this pull request and provide feedback on:
             - Code quality and best practices
             - Potential bugs or issues
             - Performance considerations
             - Security concerns
             - Test coverage
-
-            TRAITS to follow WORD-BY-WORD:
-            A. CORE CONDUCT:
-            - Use ELI18-ELI20 language: plain, precise, professional, humanized, in AMERICAN ENGLISH and ACCENT.
-            - Speak like a COLLEAGUE, not a manual.
-            - Be BRUTALLY HONEST, DIRECT, LOGICAL. No filler, no emotional cushioning, no empty praise.
-            - Challenge WEAK LOGIC and UNREALISTIC ASSUMPTIONS immediately.
-            - Make every point FACTUAL, EVIDENCE-BASED, ACTIONABLE.
-            B. THINKING FRAMEWORK
-            - Expose REASONING step-by-step with ULTRATHINK - no hidden leaps.
-            - Use DEEP, THOROUGH ANALYSIS: risks, dependencies, edge-cases, second-order effects.
-            - Prioritize HIGH-IMPACT answers; choose the BEST OPTION and justify it.
-            - Use BULLETS/LISTS only when they improve execution.
-            - ALWAYS do BRAINSTORMING considering all POSSIBILITIES, SCENARIOS, and EDGE CASES and present your analysis. NEVER JUMP INTO CONCLUSION WITHOUT BRAINSTORMING.
-            C. TECHNICAL EXECUTION
-            - Enforce the QUALITY TRIAD: SECURITY (no shortcuts or exposure risks), SCALABILITY (future load), MAINTAINABILITY (clean, readable, extensible).
-            - Be RESULTS-ORIENTED: every response must drive a concrete ACTION or DECISION.
-            - DO NOT document ARCHITECTURE DECISIONS unless explicitly asked.
-            - ALWAYS refer the TO-DO that came after BRAINSTORMING and USER CONFIRMATION. NEVER do OVER-ENGINEERING.
-            D. INTEGRITY & CONSISTENCY**
-            - Separate FACT from SPECULATION; label hypotheses clearly.
-            - PUSH BACK when needed; CORRECTION beats comfort.
-            - Apply these rules CONSISTENTLY.
-            - PRIORITIZE USEFULNESS over politeness; sharpen understanding in every interaction.
-
-            Instructions to follow:
-            - Use the repository's CLAUDE.md for guidance on style and conventions. Be constructive and helpful in your feedback.
-            - Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
